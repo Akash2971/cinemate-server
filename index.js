@@ -18,6 +18,8 @@ mongoose.connect(
         );
         
 const app = express();
+const port = process.env.PORT || 4000
+
 app.use(express.static("public"))
 //Middlewares
 app.use(cookieParser())
@@ -34,4 +36,4 @@ app.use('/',postRoute)
 app.get('/*', function(req,res) {
 		res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
-app.listen(4000,()=>console.log("Server running at port 4000"));
+app.listen(port,()=>console.log("Server running at port 4000"));

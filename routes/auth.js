@@ -86,8 +86,6 @@ router.patch('/api/addfav', async(req,res)=>{
         if(!claims){
             return res.status(401).send({message:'unauthenticated'})
         }
-        // const user = await User.findOne({_id: claims._id});
-        console.log(claims._id)
         const user = await User.findByIdAndUpdate(claims._id,{
             $addToSet : {
                 watchlist :  {

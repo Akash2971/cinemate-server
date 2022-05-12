@@ -5,7 +5,6 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const path = require('path')
 const authRoute = require('./routes/auth');
-const postRoute = require('./routes/post');
 dotenv.config();
 
 
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.use('/',authRoute);
-app.use('/',postRoute)
 app.get('/*', function(req,res) {
 		res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
